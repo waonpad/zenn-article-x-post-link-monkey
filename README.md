@@ -14,10 +14,26 @@ Zennの記事をXで共有する際、自分でポストするのではなく投
 
 [Tampermonkey - Chrome ウェブストア](https://chromewebstore.google.com/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo?hl=ja)
 
+### ユーザースクリプトのインストール
+
+https://github.com/waonpad/zenn-article-x-post-link-monkey/releases
+
+### 対象ページに移動して実行
+
+投稿者がXアカウントを紐つけているページで `command + B` を押すとXの検索結果ページが新しいタブで開く
+
+## 開発
+
 ### プロジェクトのセットアップ
 
 ```bash
 bun install
+```
+
+### ローカルサーバーの起動
+
+```bash
+bun dev
 ```
 
 ### ビルド
@@ -32,6 +48,8 @@ bun run build
 bun run preview
 ```
 
-### 対象ページに移動して実行
+### リリース
 
-投稿者がXアカウントを紐つけているページで `command + B` を押すとXの検索結果ページが新しいタブで開く
+```bash
+bun run release
+```

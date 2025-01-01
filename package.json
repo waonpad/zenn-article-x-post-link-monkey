@@ -11,7 +11,7 @@
     "fmt": "biome format --write .",
     "lnt": "biome lint --write .",
     "che": "biome check --write .",
-    "version": "bumpp-version"
+    "release": "bumpp-version"
   },
   "devDependencies": {
     "biome": "^0.3.3",
