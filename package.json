@@ -1,0 +1,22 @@
+{
+  "name": "zenn-article-x-post-link-monkey",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "prepare": "lefthook install",
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "fmt": "biome format --write .",
+    "lnt": "biome lint --write .",
+    "che": "biome check --write ."
+  },
+  "devDependencies": {
+    "biome": "^0.3.3",
+    "lefthook": "^1.10.1",
+    "typescript": "^5.7.2",
+    "vite": "^6.0.5",
+    "vite-plugin-monkey": "^5.0.3"
+  }
+}
