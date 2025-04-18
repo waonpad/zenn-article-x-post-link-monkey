@@ -3,7 +3,7 @@
  *
  * Zennの記事ページ、本のトップページ、スクラップのページに対応
  */
-const matchRegexp = new RegExp(`^https://zenn.dev/[^/]+/(articles|books|scraps)/[^/]+$`);
+const matchRegexp = /^https:\/\/zenn.dev\/[^\/]+\/(articles|books|scraps)\/[^\/]+$/;
 
 /**
  * 現在のURL
@@ -31,7 +31,9 @@ const secondKeyCode = "KeyB";
  * メインの処理
  */
 const action = () => {
-  const elements = document.querySelectorAll<HTMLAnchorElement>("a[class*='ProfileCard_twitterLink__l4sOK'], a[class*='SidebarUserBio_twitterLink__yGgDq']");
+  const elements = document.querySelectorAll<HTMLAnchorElement>(
+    "a[class*='ProfileCard_twitterLink__l4sOK'], a[class*='SidebarUserBio_twitterLink__yGgDq']",
+  );
 
   // Xアカウントリンクは記事の下とサイドバーに2つある可能性がある
 
@@ -43,6 +45,7 @@ const action = () => {
 
   const element = elements[0];
   // hrefの最後のパスがXアカウント名
+  // biome-ignore lint/style/noNonNullAssertion: <explanation>
   const authorXId = element.href.split("/").pop()!;
 
   // from:idでそのユーザーの投稿を検索する
@@ -139,11 +142,13 @@ const observerCallback = ((mutations: MutationRecord[]) => {
  */
 const init = () => {
   const observer = new MutationObserver(observerCallback);
+  // biome-ignore lint/style/noNonNullAssertion: <explanation>
   const targetNode = document.querySelector<HTMLHeadElement>("head")!;
   observer.observe(targetNode, { childList: true, subtree: true });
 
   // 初回実行は手動で行う
+  // biome-ignore lint/style/noNonNullAssertion: <explanation>
   manageEventListeners({ url: document.querySelector<HTMLLinkElement>("link[rel='canonical']")!.href });
-}
+};
 
 init();
